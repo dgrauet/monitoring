@@ -1,0 +1,14 @@
+# elasticsearch
+[elasticsearch]
+logging01 ansible_ssh_host=192.168.99.100
+logging02 ansible_ssh_host=192.168.99.101
+logging03 ansible_ssh_host=192.168.99.102
+
+[elasticsearch-master]
+logging01 ansible_ssh_host=192.168.99.100
+logging02 ansible_ssh_host=192.168.99.101
+
+[elasticsearch-data]
+logging01 ansible_ssh_host=192.168.99.100
+logging02 ansible_ssh_host=192.168.99.101
+logging03 ansible_ssh_host=192.168.99.102

@@ -1,0 +1,22 @@
+---
+
+elasticsearch_directory: "{{ service_root_directory }}/elasticsearch"
+elasticsearch_directory_config: "{{ elasticsearch_directory }}/config"
+elasticsearch_directory_data: "{{ elasticsearch_directory }}/data"
+elasticsearch_directory_logs: "{{ elasticsearch_directory }}/logs"
+
+elasticsearch_directories_tree:
+  - "{{ elasticsearch_directory_config }}"
+  - "{{ elasticsearch_directory_data }}"
+  - "{{ elasticsearch_directory_logs }}"
+
+elasticsearch_global_config:
+  cluster_name: "logging-prod"
+  node_name: "{{ ansible_nodename }}"
+  #node_rack: ""
+  bootstrap_mlockall: true
+  network_host: "{{ ansible_default['ipv4']['address'] }}"
+  http_port: 9200
+  minimum_master_nodes: 2
+
+# elasticsearch_logging_config:

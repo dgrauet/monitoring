@@ -1,0 +1,5 @@
+---
+
+- include: fixtures.yml
+- include: config.yml
+- include: docker.yml

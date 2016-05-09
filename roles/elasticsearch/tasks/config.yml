@@ -1,0 +1,8 @@
+---
+
+- name: copy config files
+  template: src={{ item }}.j2 dest={{ elasticsearch_directory_config }}/{{ item }}
+  with_items:
+    - elasticsearch.yml
+    - logging.yml
+  tags: elasticsearch-conf

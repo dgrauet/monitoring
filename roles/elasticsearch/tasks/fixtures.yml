@@ -1,0 +1,10 @@
+---
+
+- name: create elasticsearch directory
+  file: >
+      path={{ item }}
+      owner=root
+      group=root
+      mode=0770
+      state=directory
+  with_items: "{{ elasticsearch_directories_tree }}"
