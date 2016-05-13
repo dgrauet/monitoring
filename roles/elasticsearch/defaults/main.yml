@@ -13,10 +13,13 @@ elasticsearch_directories_tree:
 elasticsearch_global_config:
   cluster_name: "logging-prod"
   node_name: "{{ ansible_nodename }}"
+  node_master: true
+  node_data: true
+  node_ingest: true
   #node_rack: ""
   bootstrap_mlockall: true
   network_host: "{{ ansible_default['ipv4']['address'] }}"
   http_port: 9200
-  minimum_master_nodes: 2
+  minimum_master_nodes: 1 # (master_eligible_nodes / 2) + 1
 
 # elasticsearch_logging_config:

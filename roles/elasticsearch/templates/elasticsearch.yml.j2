@@ -32,6 +32,10 @@ node.name: "{{ elasticsearch_global_config.node_name }}"
 {% if elasticsearch_global_config.node_rack is defined -%}
   node.rack: "{{ elasticsearch_global_config.node_rack }}"
 {% endif %}
+
+node.master: "{{ elasticsearch_global_config.node_master }}"
+node.data: "{{ elasticsearch_global_config.node_data }}"
+node.ingest: "{{ elasticsearch_global_config.node_ingest }}"
 #
 # ----------------------------------- Paths ------------------------------------
 #
