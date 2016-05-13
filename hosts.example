@@ -1,0 +1,17 @@
+# elasticsearch
+[elasticsearch]
+# logging01
+# logging02
+# logging03
+
+[elasticsearch-master]
+# logging01
+# logging02
+# logging03
+
+[elasticsearch-data]
+# logging01
+# logging02
+# logging03
+
+[elasticsearch-ingest]
