@@ -2,6 +2,12 @@
 
 - hosts: elasticsearch
   roles:
+    - common
+  tags:
+    - common
+
+- hosts: elasticsearch
+  roles:
     - elasticsearch
   tags:
     - elasticsearch
