@@ -3,14 +3,17 @@
 - name: elasticsearch container
   docker:
     name: "elasticsearch"
-    image: "elasticsearch:5"
+    image: "elasticsearch:latest"
     pull: always
-    volumes: "{{elasticsearch_directory }}:/usr/share/elasticsearch"
+    privileged: true
+    volumes:
+      - "{{elasticsearch_directory_config }}:/usr/share/elasticsearch/config"
+      - "{{elasticsearch_directory_data }}:/usr/share/elasticsearch/data"
+      - "{{elasticsearch_directory_logs }}:/usr/share/elasticsearch/logs"
     command: elasticsearch
     state: started
-    log_driver: journald
     restart_policy: always
     docker_api_version: "1.23"
     net: "host"
     pid: "host"
-    ports: "{{ elasticsearch_global_config.http_port }}, 9300"
+    ports: "{{ elasticsearch_global_config['http.port'] }}, 9300"

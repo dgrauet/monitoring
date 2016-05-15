@@ -1,7 +1,0 @@
----
-
-elasticsearch_global_config:
-  node_master: true
-  node_data: true
-  node_ingest: false
-  minimum_master_nodes: 2
