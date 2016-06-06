@@ -27,6 +27,6 @@ elasticsearch_data_config:
   node.data: false
 
 elasticsearch_ingest_config:
-  node:ingest: false
+  node.ingest: false
 
 # elasticsearch_logging_config:
