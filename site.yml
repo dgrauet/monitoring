@@ -1,0 +1,25 @@
+---
+
+- hosts: elasticsearch
+  roles:
+    - common
+    - elasticsearch
+  tags: elasticsearch
+
+- hosts: redis
+  roles:
+    - common
+    - redis
+  tags: redis
+
+- hosts: logstash
+  roles:
+    - common
+    - logstash
+  tags: logstash
+
+- hosts: kibana
+  roles:
+    - common
+    - kibana
+  tags: kibana
