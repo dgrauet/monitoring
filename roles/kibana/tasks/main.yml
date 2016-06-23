@@ -1,0 +1,6 @@
+# file: roles/redis/tasks/main.yml
+---
+
+- include : fixtures.yml
+
+- include : docker.yml

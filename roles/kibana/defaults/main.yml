@@ -1,0 +1,10 @@
+---
+
+service_root_directory: "/data"
+
+kibana_home_directory: "{{ service_root_directory }}/kibana"
+
+kibana_directories_tree:
+  - "{{ kibana_home_directory }}"
+
+elasticsearch_url: localhost

@@ -1,0 +1,17 @@
+# file: roles/kibana/tasks/docker.yml
+---
+
+- name: kibana container
+  docker:
+    name: "kibana"
+    image: "kibana"
+    pull: always
+    command: kibana
+    state: started
+    restart_policy: always
+    net: "host"
+    pid: "host"
+    docker_api_version: "1.23"
+    ports: "5601"
+    env:
+      ELASTICSEARCH_URL: "http://{{ elasticsearch_url }}:9200"
