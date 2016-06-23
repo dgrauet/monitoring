@@ -1,0 +1,31 @@
+input {
+{% if logstash_config_input_syslog %}
+  syslog {
+    port => 5000
+  }
+{% endif %}
+{% if logstash_config_input_redis %}  redis {
+    host => "localhost" 
+    data_type => {{ redis_global_config['data_type'] }}
+    key => "{{ redis_global_config['key'] }}"
+  }
+{% endif %}
+}
+
+filter {
+{% if logstash_config_filter_syslog %}
+{% endif %}
+}
+
+output {
+{% if logstash_config_output_elasticsearch %}  elasticsearch {
+    hosts => [ {% for host in groups['elasticsearch'] %}"{{ host }}:{{ elasticsearch_global_config['http.port'] }}"{% if not loop.last %},{% endif %}{% endfor %} ]
+  }
+{% endif %}
+{% if logstash_config_output_redis %}  redis {
+    host => [ {% for host in groups['redis'] %}"{{ host }}"{% if not loop.last %},{% endif %}{% endfor %} ]
+    data_type => "{{ redis_global_config['data_type'] }}"
+    key => "{{ redis_global_config['key'] }}"
+  } 
+{% endif %}
+}

@@ -1,0 +1,7 @@
+---
+
+- name: copy config files
+  template: src={{ item }}.j2 dest={{ logstash_directory_config }}/{{ item }}
+  with_items:
+    - logstash.conf
+  tags: logstash-conf

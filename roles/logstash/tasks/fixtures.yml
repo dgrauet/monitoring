@@ -1,0 +1,10 @@
+---
+
+- name: create logstash directory
+  file: >
+      path={{ item }}
+      owner=root
+      group=root
+      mode=0777
+      state=directory
+  with_items: "{{ logstash_directories_tree }}"

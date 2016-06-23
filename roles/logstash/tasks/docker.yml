@@ -1,0 +1,17 @@
+---
+
+- name:  logstash container
+  docker:
+    name: "logstash"
+    image: "logstash:{{ logstash_version }}"
+    pull: always
+    privileged: true
+    volumes:
+      - "{{ logstash_directory_config }}:/etc/logstash"
+    command: "logstash -f /etc/logstash/logstash.conf"
+    state: started
+    restart_policy: always
+    docker_api_version: "1.21"
+    net: "host"
+    pid: "host"
+    ports: "5000"

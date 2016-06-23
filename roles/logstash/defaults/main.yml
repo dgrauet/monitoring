@@ -1,0 +1,17 @@
+---
+
+service_root_directory: "/data"
+
+logstash_directory: "{{ service_root_directory }}/logstash"
+logstash_directory_config: "{{ logstash_directory }}/config"
+
+logstash_directories_tree:
+  - "{{ logstash_directory_config }}"
+
+logstash_version: "latest"
+
+logstash_config_input_syslog: false
+logstash_config_input_redis: false
+logstash_config_filter_syslog: false
+logstash_config_output_redis: false
+logstash_config_output_elasticsearch: false
