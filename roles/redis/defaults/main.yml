@@ -1,0 +1,8 @@
+---
+
+service_root_directory: "/data"
+
+redis_home_directory: "{{ service_root_directory }}/redis"
+
+redis_directories_tree:
+  - "{{ redis_home_directory }}"

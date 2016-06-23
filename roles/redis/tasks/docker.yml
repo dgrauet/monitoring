@@ -1,0 +1,16 @@
+# file: roles/redis/tasks/docker.yml
+---
+
+- name: redis container
+  docker:
+    name: "redis"
+    image: "redis"
+    pull: always
+    volumes: /data/redis:/data
+    command: redis-server --appendonly yes
+    state: restarted
+    restart_policy: always
+    net: "host"
+    pid: "host"
+    docker_api_version: "1.23"
+    ports: "6379"
