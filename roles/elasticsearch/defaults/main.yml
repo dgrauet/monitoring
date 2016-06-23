@@ -6,22 +6,37 @@ elasticsearch_directory: "{{ service_root_directory }}/elasticsearch"
 elasticsearch_directory_config: "{{ elasticsearch_directory }}/config"
 elasticsearch_directory_data: "{{ elasticsearch_directory }}/data"
 elasticsearch_directory_logs: "{{ elasticsearch_directory }}/logs"
+elasticsearch_directory_plugins: "{{ elasticsearch_directory }}/plugins"
 
 elasticsearch_directories_tree:
   - "{{ elasticsearch_directory_config }}"
   - "{{ elasticsearch_directory_data }}"
   - "{{ elasticsearch_directory_logs }}"
+  - "{{ elasticsearch_directory_plugins }}"
+
+elasticsearch_version: "latest"
 
 elasticsearch_global_config:
-  cluster_name: "logging-prod"
-  node_name: "{{ ansible_nodename }}"
-  bootstrap_mlockall: true
-  network_host: "{{ ansible_default_ipv4['address'] }}"
-  http_port: 9200
-  minimum_master_nodes: 1 # (master_eligible_nodes / 2) + 1
+  cluster.name: "logging-prod"
+  node.name: "{{ ansible_nodename }}"
+  bootstrap.mlockall: true
+  network.host: "{{ ansible_default_ipv4['address'] }}"
+  http.port: 9200
+  discovery.zen.minimum_master_nodes: 2 # (master_eligible_nodes / 2) + 1
+  discovery.zen.ping.multicast.enabled: true
+  discovery.zen.ping.unicast.hosts: "localhost"
+  index.number_of_shards: 5
+  index.number_of_replicas: 1 # Additional replicas so 1 + 1
+  gateway.recover_after_nodes: 1
+  gateway.recover_after_time: 10m
+  gateway.expected_nodes: 2
+  action.disable_close_all_indices: false
+  action.disable_delete_all_indices: false
+  action.disable_shutdown: false
+  indices.recovery.max_bytes_per_sec: 20mb
 
 elasticsearch_master_config:
-  node.master:false
+  node.master: false
 
 elasticsearch_data_config:
   node.data: false
@@ -30,3 +45,5 @@ elasticsearch_ingest_config:
   node.ingest: false
 
 # elasticsearch_logging_config:
+
+elasticsearch_plugin_kopf: false

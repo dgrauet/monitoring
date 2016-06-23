@@ -2,4 +2,5 @@
 
 - include: fixtures.yml
 - include: config.yml
+- include: plugins.yml
 - include: docker.yml

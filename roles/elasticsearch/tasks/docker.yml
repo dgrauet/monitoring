@@ -3,13 +3,14 @@
 - name: elasticsearch container
   docker:
     name: "elasticsearch"
-    image: "elasticsearch:latest"
+    image: "elasticsearch:{{ elasticsearch_version }}"
     pull: always
     privileged: true
     volumes:
       - "{{elasticsearch_directory_config }}:/usr/share/elasticsearch/config"
       - "{{elasticsearch_directory_data }}:/usr/share/elasticsearch/data"
       - "{{elasticsearch_directory_logs }}:/usr/share/elasticsearch/logs"
+      - "{{elasticsearch_directory_plugins }}:/usr/share/elasticsearch/plugins"
     command: elasticsearch
     state: started
     restart_policy: always
