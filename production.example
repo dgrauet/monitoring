@@ -10,6 +10,7 @@ elasticsearch-ingest
 
 [elasticsearch-ingest]
 
+# logstash
 [logstash:children]
 logstash-shipper
 logstash-indexer
@@ -18,6 +19,8 @@ logstash-indexer
 
 [logstash-indexer]
 
+# redis
 [redis]
 
+# kibana
 [kibana]
