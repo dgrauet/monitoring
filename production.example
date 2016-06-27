@@ -1,0 +1,23 @@
+# elasticsearch
+[elasticsearch:children]
+elasticsearch-master
+elasticsearch-data
+elasticsearch-ingest
+
+[elasticsearch-master]
+
+[elasticsearch-data]
+
+[elasticsearch-ingest]
+
+[logstash:children]
+logstash-shipper
+logstash-indexer
+
+[logstash-shipper]
+
+[logstash-indexer]
+
+[redis]
+
+[kibana]
