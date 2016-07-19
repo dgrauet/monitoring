@@ -1,14 +1,6 @@
 # elasticsearch
-[elasticsearch:children]
-elasticsearch-master
-elasticsearch-data
-elasticsearch-ingest
+[elasticsearch]
 
-[elasticsearch-master]
-
-[elasticsearch-data]
-
-[elasticsearch-ingest]
 
 # logstash
 [logstash:children]
