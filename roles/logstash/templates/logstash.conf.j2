@@ -1,7 +1,12 @@
 input {
 {% if logstash_config_input_syslog %}
-  syslog {
+  tcp {
     port => 5000
+    type => syslog
+  }
+  udp {
+    port => 5000
+    type => syslog
   }
 {% endif %}
 {% if logstash_config_input_redis %}  redis {
@@ -14,6 +19,11 @@ input {
 
 filter {
 {% if logstash_config_filter_syslog %}
+  if [type] == "syslog" {
+    grok {
+      match => { "message" => "<%{POSINT:syslog_pri}>%{SYSLOGTIMESTAMP:syslog_timestamp} %{SYSLOGHOST:syslog_hostname} %{DATA:syslog_program}(?:\[%{POSINT:syslog_pid}\])?: %{GREEDYDATA:syslog_message}" }
+    }
+  }
 {% endif %}
 }
 
