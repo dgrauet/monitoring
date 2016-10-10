@@ -6,7 +6,7 @@ elasticsearch_directory: "{{ service_root_directory }}/elasticsearch"
 elasticsearch_directory_config: "{{ elasticsearch_directory }}/config"
 elasticsearch_directory_data: "{{ elasticsearch_directory }}/data"
 elasticsearch_directory_logs: "{{ elasticsearch_directory }}/logs"
-elasticsearch_directory_plugins: "{{ elasticsearch_directory }}/plugins"
+elasticsearch_directory_plugins: "{{ elasticsearch_directory }}/plugins/"
 
 elasticsearch_directories_tree:
   - "{{ elasticsearch_directory_config }}"
