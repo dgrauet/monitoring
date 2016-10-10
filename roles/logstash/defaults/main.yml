@@ -10,8 +10,10 @@ logstash_directories_tree:
 
 logstash_version: "latest"
 
+logstash_global_config:
+  port: 5000
+
 logstash_config_input_syslog: false
 logstash_config_input_redis: false
-logstash_config_filter_syslog: false
 logstash_config_output_redis: false
 logstash_config_output_elasticsearch: false

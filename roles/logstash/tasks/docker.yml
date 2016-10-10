@@ -11,7 +11,7 @@
     command: "logstash -f /etc/logstash/logstash.conf"
     state: started
     restart_policy: always
-    docker_api_version: "1.21"
+    docker_api_version: "1.23"
     net: "host"
     pid: "host"
     ports: "5000"
