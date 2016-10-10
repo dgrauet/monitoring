@@ -1,4 +1,13 @@
 ---
 
+- name: Create kopf directory.
+  file: >
+      path={{ elasticsearch_directory_plugins }}/{{ item }}
+      owner=root
+      group=root
+      mode=0770
+      state=directory
+  with_items: kopf
+
 - name: Install plugin kopf
-  unarchive: src=plugins/kopf.tar.gz dest={{ elasticsearch_directory_plugins }} copy=yes
+  unarchive: src=plugins/kopf.tgz dest={{ elasticsearch_directory_plugins }} copy=yes
